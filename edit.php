@@ -1,8 +1,7 @@
 <?php
-// include database connection file
+
 include_once("config.php");
  
-// Check if form is submitted for user update, then redirect to homepage after update
 if(isset($_POST['update']))
 {	
 	$id = $_POST['id'];
@@ -13,19 +12,15 @@ if(isset($_POST['update']))
 	$mobile=$_POST['mobile'];
 	$email=$_POST['email'];
 		
-	// update user data
 	$result = mysqli_query($mysqli, "UPDATE users SET name='$name',nrp='$nrp',email='$email',mobile='$mobile' WHERE id=$id");
 	
-	// Redirect to homepage to display updated user in list
 	header("Location: index.php");
 }
 ?>
 <?php
-// Display selected user data based on id
-// Getting id from url
+
 $id = $_GET['id'];
  
-// Fetech user data based on id
 $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
  
 while($user_data = mysqli_fetch_array($result))

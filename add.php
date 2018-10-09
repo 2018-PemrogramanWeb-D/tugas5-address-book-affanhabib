@@ -38,7 +38,6 @@
 	
 	<?php
  
-	// Check If form submitted, insert form data into users table.
 	if(isset($_POST['Submit'])) {
 		$name = $_POST['name'];
 		$nrp = $_POST['nrp'];
@@ -46,13 +45,10 @@
 		$email = $_POST['email'];
 		$mobile = $_POST['mobile'];
 		
-		// include database connection file
 		include_once("config.php");
 				
-		// Insert user data into table
 		$result = mysqli_query($mysqli, "INSERT INTO users(name,nrp,address,email,mobile) VALUES('$name','$nrp','$address','$email','$mobile')");
-		//print_r("INSERT INTO users(name,nrp,address,email,mobile) VALUES('$name','$nrp','$address','$email','$mobile')");
-		// Show message when user added
+		
 		echo "User added successfully. <a href='index.php'>View Users</a>";
 	}
 	?>
